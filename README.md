@@ -1,7 +1,3 @@
-Here's a detailed **README** for your project, which can be uploaded to GitHub. It describes the entire project, including model accuracy, how to run it in Google Colab, and usage of **Streamlit** and **Ngrok** for deployment:
-
----
-
 # **Heartbeat Classification Project**
 
 This project focuses on classifying heartbeats using data from the MIT-BIH Arrhythmia dataset, available on Kaggle. The project implements three machine learning models to classify ECG (Electrocardiogram) heartbeats: 
@@ -66,59 +62,16 @@ Additionally, the project is set up to be run in **Google Colab** and uses **Str
    - The app is designed to allow users to upload a CSV file with heartbeat data, and choose between Logistic Regression or Binary + Multi-Class models for prediction.
    
 ### **Deploying the Project Using Ngrok**
-1. **Install Ngrok and Streamlit**:
-   - Install **Streamlit** and **Ngrok** to run the web interface and create a tunnel for public access:
-     ```bash
-     !pip install streamlit pyngrok
-     ```
-
+1. **Install Ngrok and Streamlit**
+   - Install **Streamlit** and **Ngrok** to run the web interface and create a tunnel for public access
 2. **Set Up Ngrok**:
-   - Set up the Ngrok authentication token (replace with your own token) in Colab:
-     ```python
-     import os
-     os.environ["NGROK_AUTH_TOKEN"] = "your_ngrok_token_here"
-     ```
-
-3. **Run Streamlit App**:
-   - Save the following code in a Python file (`app.py`) and run it to start the Streamlit app:
-     ```bash
-     %%writefile app.py
-     import streamlit as st
-     import pandas as pd
-     import joblib
-     import numpy as np
-     from sklearn.preprocessing import StandardScaler
-
-     # Add the main logic of your Streamlit app here (refer to the notebook).
-     ```
-
-4. **Expose the App Using Ngrok**:
-   - After starting Streamlit, create a tunnel using Ngrok to expose the app:
-     ```bash
-     public_url = ngrok.connect(port='8501')
-     print(public_url)
-     ```
+   - Set up the Ngrok authentication token (replace with your own token) in Colab
+3. **Run Streamlit App**
+4. **Expose the App Using Ngrok**
    - The generated **public URL** can be used to access the deployed model and interact with it remotely.
 
 ### **Testing the Model with Sample Data**
-   - A script is provided to create a test sample from the dataset. The following code will generate a small random sample (10 rows per class) and save it as `random_test_sample.csv`:
-     ```python
-     import pandas as pd
-     from sklearn.preprocessing import LabelEncoder
-
-     df = pd.read_csv('/content/heartbeat_data/mitbih_test.csv')
-
-     random_rows = df.groupby(df.columns[-1]).sample(n=10, random_state=42)
-     label_encoder = LabelEncoder()
-
-     for column in random_rows.columns:
-         if random_rows[column].dtype == 'object':
-             random_rows[column] = label_encoder.fit_transform(random_rows[column].astype(str))
-             random_rows[column] = random_rows[column].astype(int)
-
-     random_rows.to_csv('random_test_sample.csv', header=False, index=False)
-     print("Saved random_test_sample.csv")
-     ```
+   - A script is provided to create a test sample from the dataset. The code will generate a small random sample (10 rows per class) and save it as `random_test_sample.csv`
 
 ## **Project Files**
 - **`10_1.ipynb`**: The main Jupyter notebook where the models are trained and evaluated.
@@ -127,13 +80,7 @@ Additionally, the project is set up to be run in **Google Colab** and uses **Str
 - **`logistic_regression_model.pkl`**: The saved Logistic Regression model.
 - **`binary_model.pkl`**: The saved Binary Classification model.
 - **`multi_class_model.pkl`**: The saved Multi-Class Classification model.
-
-## **Requirements**
-- **Python** 3.x
-- **Scikit-Learn** for model development.
-- **XGBoost** for binary and multi-class models.
-- **Streamlit** for web app deployment.
-- **Ngrok** to create public tunnels for the Streamlit app.
+- **`requirements.txt`**: file that includes the libraries needed for your project.
 
 ### **How to Install the Dependencies**
 You can install all required dependencies using the following command:
@@ -141,6 +88,3 @@ You can install all required dependencies using the following command:
 pip install -r requirements.txt
 ```
 
----
-
-Feel free to extend or modify this README based on any additional features or details you'd like to highlight. This guide provides a comprehensive overview of the project, instructions for setting it up in Colab, and how to deploy it using Streamlit and Ngrok.
