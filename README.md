@@ -74,7 +74,7 @@ Additionally, the project is set up to be run in **Google Colab** and uses **Str
    - A script is provided to create a test sample from the dataset. The code will generate a small random sample (10 rows per class) and save it as `random_test_sample.csv`
 
 ## **Project Files**
-- **`10_1.ipynb`**: The main Jupyter notebook where the models are trained and evaluated.
+- **`ecg_classification_pipeline.ipynb`**: The main Jupyter notebook where the models are trained and evaluated.
 - **`app.py`**: The Python script for the Streamlit web app.
 - **`random_test_sample.csv`**: A sample test dataset to evaluate the models.
 - **`logistic_regression_model.pkl`**: The saved Logistic Regression model.
