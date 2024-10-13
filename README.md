@@ -7,6 +7,7 @@ This project focuses on classifying heartbeats using data from the MIT-BIH Arrhy
 
 Additionally, the project is set up to be run in **Google Colab** and uses **Streamlit** and **Ngrok** for deployment, allowing users to interact with the classification models via a web interface.
 
+this is a simple deployment for the models: **https://ecg-classification-deploy-app.streamlit.app/**
 ## **Project Workflow**
 
 ### 1. **Data Preprocessing**
